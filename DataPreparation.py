@@ -39,5 +39,9 @@ def ReplacingFeatureName(df):
     for line, letter in zip(ind1['old'], lettervec):
         newcol.append(line + " " + letter)
     df.columns = newcol
+    newind = []
+    for element in df.index:
+        newind.append(element.strip())
+    df.index=newind
     print(f'Feature names are changed for better visualization')
     return df.T
